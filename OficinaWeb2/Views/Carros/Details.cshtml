@@ -1,0 +1,36 @@
+﻿@model OficinaWeb2.Models.Carro
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h1>@ViewData["Title"] </h1>
+
+<div>
+
+    <hr />
+
+    <dl class="row">
+
+        <dt class="col-sm-2" style="font-size:small">
+            @Html.DisplayNameFor(model => model.MODELO)
+        </dt>
+        <dd class="col-sm-10" style="text-transform:uppercase; font-size:small">
+            @Html.DisplayFor(model => model.MODELO)
+        </dd>
+
+        <dt class="col-sm-2" style="font-size:small">
+            @Html.DisplayNameFor(model => model.PLACA)
+        </dt>
+        <dd class="col-sm-10" style="text-transform: uppercase; font-size:small">
+            @Html.DisplayFor(model => model.PLACA)
+        </dd>
+        
+    </dl>
+
+</div>
+<hr />
+<div class="btn-group">
+    <a style="border-bottom-left-radius:5px;border-top-left-radius:5px;border-color:lightslategray" class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.ID">Editar</a>
+    <a style="border-bottom-right-radius:5px;border-top-right-radius:5px;border-color:lightslategray" class="btn btn-dark" asp-action="Index">Voltar a lista</a>
+</div>

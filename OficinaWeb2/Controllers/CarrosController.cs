@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using OficinaWeb2.Services;
+using Microsoft.EntityFrameworkCore;
 using OficinaWeb2.Models;
 
 namespace OficinaWeb2.Controllers
@@ -33,17 +34,52 @@ namespace OficinaWeb2.Controllers
         //GET
         public IActionResult Delete(int? id)
         {
-            if(id == null)
+            try
             {
-                return NotFound();
+                if (id == null)
+                {
+                    return NotFound();
+                }
+                var obj = _carroService.FindById(id.Value);
+                if (obj == null)
+                {
+                    return NotFound();
+                }
+                return View(obj);
             }
-            var obj = _carroService.FindById(id.Value);
-            if(obj == null)
+            catch (Exception ex)
             {
-                return NotFound();
+
+                throw new Exception(ex.Message);
             }
-            return View(obj);
+            
         }
+
+
+        //GET
+        public IActionResult Details(int? id)
+        {
+            try
+            {
+                if (id == null)
+                {
+                    return NotFound();
+                }
+                var obj = _carroService.FindById(id.Value);
+                if (obj == null)
+                {
+                    return NotFound();
+                }
+                return View(obj);
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message );
+            }
+            
+        }
+
 
 
 
@@ -63,6 +99,30 @@ namespace OficinaWeb2.Controllers
         {
             _carroService.Remover(id);
             return RedirectToAction(nameof(Index));
+        }
+
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int? id, Carro carro)
+        {
+            if(id != carro.ID)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                _carroService.Update(carro);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            } 
+           
+           
         }
     }
 }

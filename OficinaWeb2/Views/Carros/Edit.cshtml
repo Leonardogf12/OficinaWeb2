@@ -1,0 +1,36 @@
+﻿@model OficinaWeb2.Models.Carro
+
+@{
+    ViewData["Titile"] = "Editar Informações";
+}
+
+<h1>@ViewData["Titile"]</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+
+        <form asp-action="Edit">
+
+            <input type="hidden" asp-for="ID" />
+
+            <div class="form-group">
+                <label asp-for="MODELO" class="control-label"></label>
+                <input asp-for="MODELO" class="form-control" />
+                <span asp-validation-for="MODELO" class="text-danger"></span>
+                <br />
+                <label asp-for="PLACA" class="control-label"></label>
+                <input asp-for="PLACA" class="form-control" />
+                <span asp-validation-for="PLACA" class="text-danger"></span>
+                <br />
+               
+            </div>
+            <div class="btn-group">
+                <input style="border-bottom-left-radius:5px; border-top-left-radius:5px;border-color:lightslategray" value="Salvar" type="submit" class="btn btn-primary" />
+                <input style="border-bottom-right-radius:5px; border-top-right-radius:5px; border-color:lightslategray" value="Voltar a lista" type="submit" class="btn btn-dark" asp-action="Index" />
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
