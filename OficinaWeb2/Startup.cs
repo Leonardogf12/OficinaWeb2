@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using OficinaWeb2.Data;
+using OficinaWeb2.Services;
 
 namespace OficinaWeb2
 {
@@ -26,13 +27,18 @@ namespace OficinaWeb2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
-            
 
-
+            //*****************************
+            //ROTA PARA USAR O BANCO MYSQL
+            //*****************************
             services.AddDbContext<OficinaWeb2Context>(options =>
                      options.UseMySql(Configuration.GetConnectionString("OficinaWeb2Context"), builder => builder.MigrationsAssembly("OficinaWeb2")));
 
 
+            //********************************************************************************
+            //REGISTROS DE INJECAO DE DEPENDENCIA (PARA QUE POSSA SER USADO EM OUTRAS CLASSES)
+            //********************************************************************************
+            services.AddScoped<CarroService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
