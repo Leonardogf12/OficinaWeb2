@@ -1,7 +1,7 @@
 ﻿@model OficinaWeb2.Models.Carro
 
 @{
-    ViewData["Title"] = "Adicionar Veículo";
+    ViewData["Title"] = "Cadastrar Veículo";
 }
 
 <h1>@ViewData["Title"] </h1>
@@ -13,13 +13,13 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-group">
-                <label style="font-size:medium" asp-for="MODELO" class="control-label"></label>
-                <input style="border-color:lightslategray" asp-for="MODELO" class="form-control" />
+                <label asp-for="MODELO" class="control-label"></label>
+                <input style="border-color:lightslategray; border-radius:5px" asp-for="MODELO" class="form-control" />
                 <span asp-validation-for="MODELO" class="text-danger"></span>
                 <br />
 
-                <label style="font-size:medium" asp-for="PLACA" class="control-label"></label>
-                <input style="border-color:lightslategray" asp-for="PLACA" class="form-control" />
+                <label asp-for="PLACA" class="control-label"></label>
+                <input style="border-color:lightslategray; border-radius:5px" asp-for="PLACA" class="form-control" />
                 <span asp-validation-for="PLACA" class="text-danger"></span>
                 <br />
             </div>

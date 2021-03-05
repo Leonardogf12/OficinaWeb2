@@ -79,6 +79,21 @@ namespace OficinaWeb2.Controllers
             }
             
         }
+        
+        //GET
+        public IActionResult Edit(int? id)
+        {
+            if(id == null)
+            {
+                return NotFound();
+            }
+            var obj = _carroService.FindById(id.Value);
+            if(obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
 
 
 
