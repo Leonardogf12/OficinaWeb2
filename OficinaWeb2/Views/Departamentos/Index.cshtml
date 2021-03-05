@@ -1,18 +1,18 @@
 ﻿@model IEnumerable<OficinaWeb2.Models.Departamento>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Cadastro de Departamentos";
 }
 
-<h1>Index</h1>
+<h1>@ViewData["Title"]</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-dark" style="border-radius:5px" asp-action="Create">Novo Departamento</a>
 </p>
-<table class="table">
+<table class="table table-striped table-hover">
     <thead>
-        <tr>
-            <th>
+        <tr class="bg-warning">
+            <th style="text-align:left; font-size: medium; margin-left: 150px">
                 @Html.DisplayNameFor(model => model.NOME)
             </th>
             <th></th>
@@ -21,13 +21,15 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            <td  style="text-align:center; padding-top:25px; font-size:small; text-transform:uppercase">
                 @Html.DisplayFor(modelItem => item.NOME)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                <div style="margin-left:670px" class="btn btn-group">
+                    <a style="border-bottom-left-radius:5px;border-top-left-radius:5px;border-color:lightslategray" class="btn btn-dark" asp-action="Edit" asp-route-id="@item.ID">Editar</a>
+                    <a style="border-color:lightslategray" class="btn btn-dark" asp-action="Details" asp-route-id="@item.ID">Detalhes</a>
+                    <a style="border-bottom-right-radius:5px;border-top-right-radius:5px;border-color:lightslategray" class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ID">Deletar</a>
+                </div>
             </td>
         </tr>
 }

@@ -1,34 +1,33 @@
 ﻿@model OficinaWeb2.Models.Departamento
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Titile"] = "Editar Informações";
 }
 
-<h1>Edit</h1>
-
-<h4>Departamento</h4>
+<h1>@ViewData["Titile"]</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
+
         <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <input type="hidden" asp-for="ID" />
+
             <div class="form-group">
                 <label asp-for="NOME" class="control-label"></label>
-                <input asp-for="NOME" class="form-control" />
+                <input asp-for="NOME" class="form-control" style="border-color:lightgray; border-radius:5px" />
                 <span asp-validation-for="NOME" class="text-danger"></span>
+                <br />
+               
+
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="btn-group">
+                <input style="border-bottom-left-radius:5px; border-top-left-radius:5px;border-color:lightslategray" value="Salvar" type="submit" class="btn btn-primary" />
+                <input style="border-bottom-right-radius:5px; border-top-right-radius:5px; border-color:lightslategray" value="Voltar a lista" type="submit" class="btn btn-dark" asp-action="Index" />
             </div>
+
         </form>
+
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

@@ -1,32 +1,32 @@
 ﻿@model OficinaWeb2.Models.Departamento
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Cadastrar Departamentos";
 }
 
-<h1>Create</h1>
+<h1>@ViewData["Title"] </h1>
 
-<h4>Departamento</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <div class="form-group">
                 <label asp-for="NOME" class="control-label"></label>
-                <input asp-for="NOME" class="form-control" />
+                <input style="border-color:lightslategray; border-radius:5px" asp-for="NOME" class="form-control" />
                 <span asp-validation-for="NOME" class="text-danger"></span>
+                <br />
+
+            <div class="btn-group">
+                <button style="border-bottom-left-radius:5px; border-top-left-radius:5px;border-color:lightslategray" value="Create" class="btn btn-primary">Criar</button>
+                <a style="border-bottom-right-radius:5px; border-top-right-radius:5px;border-color:lightslategray" class="btn btn-dark" asp-action="Index">Voltar a lista</a>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
