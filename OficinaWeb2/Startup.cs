@@ -39,6 +39,7 @@ namespace OficinaWeb2
             //REGISTROS DE INJECAO DE DEPENDENCIA (PARA QUE POSSA SER USADO EM OUTRAS CLASSES)
             //********************************************************************************
             services.AddScoped<CarroService>();
+            services.AddScoped<ServicoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

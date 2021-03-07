@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OficinaWeb2.Data;
 
 namespace OficinaWeb2.Migrations
 {
     [DbContext(typeof(OficinaWeb2Context))]
-    partial class OficinaWeb2ContextModelSnapshot : ModelSnapshot
+    [Migration("20210307010303_tabelaServico")]
+    partial class tabelaServico
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

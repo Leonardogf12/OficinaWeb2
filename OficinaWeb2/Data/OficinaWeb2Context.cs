@@ -16,5 +16,6 @@ namespace OficinaWeb2.Data
 
         public DbSet<Departamento> Departamento { get; set; }
         public DbSet<Carro> Carro { get; set; }
+        public DbSet<Servico> Servico { get; set; }
     }
 }

@@ -1,0 +1,84 @@
+﻿@model IEnumerable<OficinaWeb2.Models.Servico>
+
+@{
+    ViewData["Title"] = "Lista de Serviços";
+}
+
+<div style="margin-left:-140px">
+    <h1>@ViewData["Title"]</h1>
+
+    <p>
+        <a class="btn btn-dark" style="border-radius:5px" asp-action="Create">Novo Serviço</a>
+    </p>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr class="bg-warning">
+                <th style="text-align:left; font-size: medium; margin-left: 150px">
+                    @Html.DisplayNameFor(model => model.VEICULO)
+                </th>
+                <th style="text-align:left; padding-left:100px; font-size: medium; margin-left: 150px">
+                    @Html.DisplayNameFor(model => model.SERVICO)
+                </th>
+                <th style="text-align:left; padding-left:80px; font-size: medium; margin-left: 150px">
+                    @Html.DisplayNameFor(model => model.OBSERVACAO)
+                </th>
+                <th style="text-align:left; padding-left:80px; font-size: medium ">
+                    <div style="width:100px">@Html.DisplayNameFor(model => model.DATA_DE)</div> 
+                </th>
+                <th style="text-align:left; padding-left:80px; font-size: medium; margin-left: 150px">
+                    <div style="width:100px">   @Html.DisplayNameFor(model => model.DATA_ATE) </div>
+                </th>
+                <th style="text-align:left; padding-left:80px; font-size: medium; margin-left: 150px">
+                    @Html.DisplayNameFor(model => model.STATUSCAR)
+                </th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="text-align:center; padding-top:25px; font-size:small; text-transform:uppercase">
+
+                        @Html.DisplayFor(modelItem => item.VEICULO)
+                    </td>
+                    <td style="text-align:center; padding-left:60px; font-size:small; padding-top:25px; text-transform:uppercase">
+                        <div class="encurta"> @Html.DisplayFor(modelItem => item.SERVICO)</div>
+                    </td>
+                    <td style="text-align:center; padding-left:60px; font-size:small; padding-top:25px; text-transform:uppercase">
+                        <div class="encurta">  @Html.DisplayFor(modelItem => item.OBSERVACAO) </div>
+                    </td>
+                    <td style="text-align:center; padding-left:85px; font-size:small; padding-top:25px; text-transform:uppercase">
+                        @Html.DisplayFor(modelItem => item.DATA_DE)
+                    </td>
+                    <td style="text-align:center; padding-left:60px; font-size:small; padding-top:25px; text-transform:uppercase">
+                        @Html.DisplayFor(modelItem => item.DATA_ATE)
+                    </td>
+                    <td style="text-align:center; padding-left:70px; font-size:small; padding-top:25px; text-transform:uppercase">
+                        @Html.DisplayFor(modelItem => item.STATUSCAR)
+                    </td>
+                    <td>
+                        <div style="margin-left:20px" class="btn btn-group">
+                            <a style="border-bottom-left-radius:5px;border-top-left-radius:5px;border-color:lightslategray" class="btn btn-dark" asp-action="Edit" asp-route-id="@item.ID">Editar</a>
+                            <a style="border-color:lightslategray" class="btn btn-dark" asp-action="Details" asp-route-id="@item.ID">Detalhes</a>
+                            <a style="border-bottom-right-radius:5px;border-top-right-radius:5px;border-color:lightslategray" class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ID">Deletar</a>
+                        </div>
+                    </td>
+                </tr>
+
+            }
+
+        </tbody>
+
+    </table>
+</div>
+@*--- CSS ---*@
+<style>
+    div.encurta {
+        white-space: nowrap;
+        width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>

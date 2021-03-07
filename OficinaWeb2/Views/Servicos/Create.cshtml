@@ -1,0 +1,61 @@
+﻿@model OficinaWeb2.Models.Servico
+
+@{
+    ViewData["Title"] = "Novo Serviço";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md=4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="VEICULO" class="control-label"></label>
+                    <input style="border-color:lightslategray; border-radius:5px" asp-for="VEICULO" class="form-control" />
+                    <span asp-validation-for="VEICULO" class="text-danger"></span>
+                    <br />
+
+                    <label asp-for="SERVICO" class="control-label"></label>
+                    <input style="border-color:lightslategray; border-radius:5px" asp-for="SERVICO" class="form-control" />
+                    <span asp-validation-for="SERVICO" class="text-danger"></span>
+                    <br />
+
+                    <label asp-for="OBSERVACAO" class="control-label"></label>
+                    <input style="border-color:lightslategray; border-radius:5px" asp-for="OBSERVACAO" class="form-control" />
+                    <span asp-validation-for="OBSERVACAO" class="text-danger"></span>
+                    <br />
+
+                    <label asp-for="DATA_DE" class="control-label"></label>
+                    <input style="border-color:lightslategray; border-radius:5px" asp-for="DATA_DE" class="form-control" />
+                    <span asp-validation-for="DATA_DE" class="text-danger"></span>
+                    <br />
+
+                    <label asp-for="DATA_ATE" class="control-label"></label>
+                    <input style="border-color:lightslategray; border-radius:5px" asp-for="DATA_ATE" class="form-control" />
+                    <span asp-validation-for="DATA_ATE" class="text-danger"></span>
+                    <br />
+
+                    <label asp-for="STATUSCAR" class="control-label"></label>
+                    <input style="border-color:lightslategray; border-radius:5px" asp-for="STATUSCAR" class="form-control" />
+                    <span asp-validation-for="STATUSCAR" class="text-danger"></span>
+                    <br />
+                </div>
+
+                <div class="btn-group">
+                    <button style="border-bottom-left-radius:5px; border-top-left-radius:5px;border-color:lightslategray" value="Create" class="btn btn-primary">Criar</button>
+                    <a style="border-bottom-right-radius:5px; border-top-right-radius:5px;border-color:lightslategray" class="btn btn-dark" asp-action="Index">Voltar a lista</a>
+                </div>
+
+            
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

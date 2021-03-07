@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using OficinaWeb2.Models.enums;
 
 namespace OficinaWeb2.Models
 {
@@ -28,11 +29,13 @@ namespace OficinaWeb2.Models
 
         [DisplayName("DATA INICIO")]
         [Required(ErrorMessage = "Campo obrigatório")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DATA_DE { get; set; }
 
 
         [DisplayName("DATA FIM")]
         [Required(ErrorMessage = "Campo obrigatório")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DATA_ATE { get; set; }
 
 
@@ -42,6 +45,10 @@ namespace OficinaWeb2.Models
 
         [NotMapped]
         public Carro SER_CARRO { get; set; }
+
+        [NotMapped]
+        [DisplayName("STATUS")]
+        public StatusCar STATUSCAR { get; set; }
 
     }
 }
