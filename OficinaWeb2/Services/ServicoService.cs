@@ -28,7 +28,7 @@ namespace OficinaWeb2.Services
         
         public void Inserir(Servico obj)
         {
-            _context.Update(obj);
+            _context.Add(obj);
             _context.SaveChanges();
         }
     }
